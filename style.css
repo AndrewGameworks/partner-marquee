@@ -63,19 +63,20 @@ body {
     flex: 0 0 auto;
     width: 380px;
     height: 220px;
-    background: #000; /* Ubah dari #111 ke Hitam Pekat */
+    background: #000; /* SEBELUMNYA #111 (ABU-ABU), SEKARANG HITAM PEKAT */
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 1px solid #1a1a1a; /* Border tipis biar tetap kelihatan bentuk card-nya */
-    transition: all 0.3s ease;
+    border: 1px solid #1a1a1a; /* BORDER TIPIS BIAR ADA DIMENSI, ATAU GANTI #000 KALAU MAU HILANG TOTAL */
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .item:hover {
-    background: #0a0a0a; /* Sedikit terang pas di-hover biar ada feedback */
-    border-color: #333;
+    background: #050505; /* SEDIKIT TERANG SAAT DIHOVER BIAR KEREN */
+    border-color: #333; /* BORDER JADI LEBIH TERANG PAS DIHOVER */
+    transform: none; 
 }
 
 .item img {

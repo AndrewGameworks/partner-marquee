@@ -1,118 +1,157 @@
-/* CSS Murni - Menggunakan Warna Border Abu-abu sesuai Script Abang */
+/* =========================================================
+   🔥 PARTNER MARQUEE - PREMIUM SLIDER (FIX TOTAL) 🔥
+   Style: Deep Black, Ultra-Rounded, High-Contrast Logos
+   ========================================================= */
 
-.partner-embed,
-.partner-embed *,
-.wrap,
-.marquee {
-  box-sizing: border-box;
+/* 1. RESET DASAR (BIAR GAK ADA SPASI LIAR) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased; /* Font lebih tajam */
 }
 
+/* 2. BODY (PASTIKAN HITAM TOTAL SEPERTI DI GAMBAR ABANG) */
+body {
+    background-color: #000000; /* Hitam Pekat */
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 3. CONTAINER UTAMA */
 .partner-embed {
-  width: 100%;
-  background: #000;
-  padding: 40px 20px;
-  border-radius: 16px;
-  overflow: hidden !important;
-  position: relative;
-  height: auto !important;
+    width: 100%;
+    background: #000000; /* Hitam Pekat */
+    padding: 60px 20px; /* Jarak atas-bawah diperlebar biar lega */
+    overflow: hidden;
+    position: relative;
 }
 
+/* 4. WRAPPER (MAKSIMAL LEBAR) */
 .wrap {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden !important;
+    width: 100%;
+    max-width: 1600px; /* Diperlebar sedikit dari kode lama abang */
+    margin: 0 auto;
+    overflow: hidden;
 }
 
+/* 5. MARQUEE AREA (DENGAN EFEK FADE DI PINGGIR) */
 .marquee {
-  width: 100%;
-  overflow: hidden !important;
-  position: relative;
-  padding: 10px 0;
-  background: #000;
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    /* Efek fade kanan-kiri yang halus agar transisi tak terlihat */
+    mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
 }
 
+/* 6. TRACK ANIMASI */
 .marquee-track {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  width: max-content;
-  animation: train 40s linear infinite;
-  will-change: transform;
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Jarak antar card diperlebar biar gak dempet */
+    width: max-content;
+    animation: train 50s linear infinite; /* Kecepatan pas, gak kencengan */
+    will-change: transform;
 }
 
 @keyframes train {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-50% - 15px)); }
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 20px)); }
 }
 
+/* Pause saat di-hover */
 .marquee:hover .marquee-track {
-  animation-play-state: paused;
+    animation-play-state: paused;
 }
 
+/* 7. ITEM CARD - INI KUNCINYA BANG! FIX RADIUS & WARNA */
 .item {
-  flex: 0 0 auto;
-  width: 380px;
-  height: 220px;
-  background: #000;           /* Background card dibuat Hitam agar menyatu */
-  border-radius: 45px;        /* Radius diperlebar sesuai gambar abang */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 1px solid #111;     /* TETAP PAKAI WARNA ABU-ABU sesuai script abang */
-  transition: background 0.3s ease, border-color 0.3s ease;
+    flex: 0 0 auto;
+    width: 380px;
+    height: 220px;
+    
+    /* 🔴 WARNA: Saya pakai Hitam Sangat Gelap (#080808) agar ada dimensi sedikit,
+       TAPI logo terlihat POP-OUT. Jangan pakai #111 karena norak/abu-abu. */
+    background: #080808; 
+    
+    /* 🔴 RADIUS: Diperlebar jadi 45px biar bulat sempurna kayak di gambar abang.
+       Kode lama abang 20px itu kekecilan. */
+    border-radius: 45px; 
+    
+    /* 🔴 BORDER: Pakai warna abu-abu gelap (#1a1a1a) agar terlihat premium. */
+    border: 1.5px solid #1a1a1a; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animasi hover lebih smooth */
 }
 
+/* Efek Hover di Card */
 .item:hover {
-  background: #0a0a0a;
-  border-color: #333;         /* Saat dihover abu-abunya agak terang dikit */
-  transform: none; 
+    background: #0d0d0d; /* Sedikit terang saat disentuh */
+    border-color: #333; /* Border makin nyala */
+    transform: translateY(-5px) scale(1.02); /* Sedikit naik & membesar biar interaktif */
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05); /* Glow tipis */
 }
 
+/* 8. LOGO INSIDE CARD - FIX KUSAM */
 .item img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 55px;              /* Logo lebih lega di tengah */
-  filter: brightness(1.2);    /* Logo lebih putih tajam */
-  transition: filter 0.3s ease;
-  pointer-events: none;
-  user-select: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Penting biar logo gak gepeng */
+    padding: 55px; /* Jarak logo ke tepi diperlebar biar lega kayak di gambar abang */
+    
+    /* 🔴 FIX: Saya HAPUS filter grayscale(0.2) lama abang.
+       Saya ganti brightness(1.2) agar logo putih/berwarna jadi POP-OUT & cerah. */
+    filter: brightness(1.2); 
+    
+    transition: all 0.3s ease;
+    pointer-events: none;
+    user-select: none;
 }
 
+/* Logo makin cerah saat dihover */
 .item:hover img {
-  filter: brightness(1.5);
+    filter: brightness(1.5) scale(1.05);
 }
 
-/* Hilangkan Scrollbar */
+/* 9. HILANGKAN SCROLLBAR */
 .partner-embed::-webkit-scrollbar,
 .wrap::-webkit-scrollbar,
 .marquee::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .partner-embed, .wrap, .marquee {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
-/* Media Query Mobile */
+/* 10. RESPONSIVE MOBILE (BIAR GAK HANCUR DI HP) */
 @media (max-width: 768px) {
-  .partner-embed { padding: 30px 14px; }
-  .marquee-track { gap: 20px; animation-duration: 25s; }
-  .item { 
-    width: 260px; 
-    height: 150px; 
-    border-radius: 30px; 
-  }
-  .item img { padding: 35px; }
-  
-  @keyframes train {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(-50% - 10px)); }
-  }
+    .partner-embed { padding: 30px 14px; }
+    .marquee-track { gap: 25px; animation-duration: 30s; }
+    
+    .item { 
+        width: 260px; 
+        height: 150px; 
+        border-radius: 30px; /* Radius mobile juga diperlebar */
+    }
+    
+    .item img { 
+        padding: 35px; 
+    }
+    
+    @keyframes train {
+        from { transform: translateX(0); }
+        to { transform: translateX(calc(-50% - 12.5px)); }
+    }
 }

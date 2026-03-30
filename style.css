@@ -1,3 +1,4 @@
+/* Container Utama */
 .partner-embed,
 .partner-embed *,
 .wrap,
@@ -8,86 +9,134 @@
 .partner-embed {
   width: 100%;
   background: #000;
-  padding: 20px; /* Padding luar diperkecil agar lebih ramping */
+  padding: 40px 20px;
   border-radius: 16px;
   overflow: hidden !important;
   position: relative;
+  height: auto !important;
 }
 
 .wrap {
   width: 100%;
-  max-width: 100%; /* Dibuat full agar lebar sesuai container Google Sites */
+  max-width: 1400px;
   margin: 0 auto;
   overflow: hidden !important;
 }
 
+/* Area Marquee dengan efek mask (fade di pinggir) */
 .marquee {
   width: 100%;
   overflow: hidden !important;
   position: relative;
   padding: 10px 0;
   background: #000;
-  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
+/* Track Animasi */
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 20px; /* Jarak antar kotak dipersempit agar tidak terlalu renggang */
+  gap: 30px;
   width: max-content;
   animation: train 40s linear infinite;
   will-change: transform;
 }
 
+/* Keyframe untuk jalan terus */
 @keyframes train {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-50% - 10px)); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 15px));
+  }
 }
 
+/* Pause saat di-hover */
 .marquee:hover .marquee-track {
   animation-play-state: paused;
 }
 
-/* UKURAN DISESUAIKAN: LEBIH LEBAR & TIDAK TERLALU TINGGI */
+/* Card Item */
 .item {
   flex: 0 0 auto;
-  width: 320px;  /* Lebar kotak ditambah */
-  height: 160px; /* Tinggi dikurangi agar lebih landscape */
-  background: #000; 
-  border-radius: 35px; /* Lengkungan sudut diperhalus */
+  width: 380px;
+  height: 220px;
+  background: #111;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid #111; /* Border abu-abu tipis sesuai script abang */
+  border: 1px solid #111;
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .item:hover {
-  background: #0a0a0a;
+  background: #1a1a1a;
   border-color: #333;
+  transform: none;
 }
 
 .item img {
   display: block;
-  max-width: 75%; /* Ukuran logo di dalam kotak diperkecil sedikit agar lega */
-  max-height: 75%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  padding: 10px;
+  padding: 40px;
   filter: grayscale(0.2);
   transition: filter 0.3s ease;
+  pointer-events: none;
+  user-select: none;
 }
 
 .item:hover img {
   filter: grayscale(0);
 }
 
-/* Responsif Mobile */
+/* Hilangkan Scrollbar */
+.partner-embed::-webkit-scrollbar,
+.wrap::-webkit-scrollbar,
+.marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.partner-embed,
+.wrap,
+.marquee {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Responsive (Mobile) */
 @media (max-width: 768px) {
+  .partner-embed {
+    padding: 30px 14px;
+  }
+
+  .marquee-track {
+    gap: 20px;
+    animation-duration: 25s;
+  }
+
   .item {
-    width: 200px;
-    height: 100px;
-    border-radius: 20px;
+    width: 260px;
+    height: 150px;
+    border-radius: 12px;
+  }
+
+  .item img {
+    padding: 24px;
+  }
+
+  @keyframes train {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 10px));
+    }
   }
 }

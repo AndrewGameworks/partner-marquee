@@ -1,5 +1,5 @@
-/* CSS MURNI DARI STRUKTUR ABANG 
-   Sudah disesuaikan agar Hitam Pekat & Bulat Sempurna 
+/* FULL CSS - PARTNER MARQUEE 
+   Theme: Deep Black & Ultra Rounded 
 */
 
 .partner-embed,
@@ -36,6 +36,7 @@
   padding: 10px 0;
   background: #000;
   height: auto !important;
+  /* Efek gradasi halus di kanan kiri agar logo tidak terpotong kasar */
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
@@ -62,23 +63,27 @@
   animation-play-state: paused;
 }
 
+/* ITEM CARD - FIX TOTAL: BUKAN ABU-ABU, TAPI HITAM ELEGAN */
 .item {
   flex: 0 0 auto;
   width: 380px;
   height: 220px;
-  background: #000;           /* Ganti ke Hitam Pekat agar tidak abu-abu */
-  border-radius: 45px;        /* Radius diperlebar agar bulat sempurna */
+  background: #000;           /* Background kotak hitam pekat */
+  border-radius: 45px;        /* Lengkungan lebar sesuai screenshot */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid #111;     /* Tetap pakai border abu-abu sesuai script abang */
-  transition: background 0.3s ease, border-color 0.3s ease;
+  
+  /* BUKAN ABU-ABU: Pakai Hitam yang sedikit lebih terang dari background agar terlihat premium */
+  border: 1px solid #080808; 
+  
+  transition: all 0.3s ease;
 }
 
 .item:hover {
-  background: #0a0a0a;
-  border-color: #333;
+  background: #050505;        /* Efek gelap saat disentuh */
+  border-color: #1a1a1a;      /* Muncul garis tipis elegan saat hover */
   transform: none; 
 }
 
@@ -87,18 +92,21 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 50px;              /* Padding ditambah agar logo lebih lega */
-  filter: brightness(1.2);    /* Ganti grayscale ke brightness agar logo nyala */
+  padding: 55px;              /* Memberi ruang lega untuk logo agar tidak sesak */
+  
+  /* Hilangkan grayscale, pakai brightness agar logo putih/warna jadi tajam */
+  filter: brightness(1.2);    
+  
   transition: filter 0.3s ease;
   pointer-events: none;
   user-select: none;
 }
 
 .item:hover img {
-  filter: brightness(1.5);
+  filter: brightness(1.5);    /* Logo makin nyala saat hover */
 }
 
-/* paksa hilangkan scrollbar */
+/* Paksa hilangkan scrollbar */
 .partner-embed::-webkit-scrollbar,
 .wrap::-webkit-scrollbar,
 .marquee::-webkit-scrollbar {
@@ -112,7 +120,7 @@
   scrollbar-width: none;
 }
 
-/* Responsif Mobile */
+/* Responsif untuk HP / Mobile */
 @media (max-width: 768px) {
   .partner-embed {
     padding: 30px 14px;
@@ -126,7 +134,7 @@
   .item {
     width: 260px;
     height: 150px;
-    border-radius: 30px;      /* Radius mobile disesuaikan */
+    border-radius: 30px;      /* Lengkungan disesuaikan untuk layar kecil */
   }
 
   .item img {

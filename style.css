@@ -1,8 +1,3 @@
-/* FULL CSS - PARTNER MARQUEE 
-   Style: Ultra-Rounded, Deep Black, High-Contrast 
-*/
-
-/* 1. RESET & BOX SIZING */
 .partner-embed,
 .partner-embed *,
 .wrap,
@@ -10,112 +5,135 @@
   box-sizing: border-box;
 }
 
-/* 2. CONTAINER UTAMA */
 .partner-embed {
   width: 100%;
   background: #000;
-  padding: 40px 0;
+  padding: 40px 20px;
+  border-radius: 16px;
   overflow: hidden !important;
   position: relative;
+  height: auto !important;
+  min-height: unset !important;
+  max-height: unset !important;
 }
 
 .wrap {
   width: 100%;
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   overflow: hidden !important;
+  height: auto !important;
 }
 
-/* 3. MARQUEE AREA DENGAN EFEK FADE KANAN-KIRI */
 .marquee {
   width: 100%;
   overflow: hidden !important;
   position: relative;
-  padding: 20px 0;
+  padding: 10px 0;
   background: #000;
-  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  height: auto !important;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
-/* 4. TRACK ANIMASI */
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 25px; /* Jarak antar card sesuai gambar */
+  gap: 30px;
   width: max-content;
   animation: train 40s linear infinite;
   will-change: transform;
 }
 
 @keyframes train {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-50% - 12.5px)); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 15px));
+  }
 }
 
 .marquee:hover .marquee-track {
   animation-play-state: paused;
 }
 
-/* 5. ITEM CARD - INI FIX TOTAL SESUAI GAMBAR */
 .item {
   flex: 0 0 auto;
-  width: 320px;  /* Lebar ramping sesuai screenshot */
-  height: 180px; /* Tinggi proporsional */
-  background: #000; /* Hitam Pekat agar menyatu sempurna */
-  border-radius: 45px; /* Radius lebar biar bulat sempurna */
+  width: 380px;
+  height: 220px;
+  background: #111;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  
-  /* BUKAN ABU-ABU: Pakai Hitam Arang (#0D0D0D) agar garisnya elegan & tipis */
-  border: 1px solid #0d0d0d; 
-  
-  transition: all 0.3s ease;
+  border: 1px solid #111;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .item:hover {
-  background: #050505;
-  border-color: #222; /* Baru muncul efek border agak terang pas di-hover */
+  background: #1a1a1a;
+  border-color: #333;
+  transform: none; /* penting: biar tidak bikin overflow vertikal */
 }
 
-/* 6. LOGO INSIDE CARD */
 .item img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  padding: 50px; /* Jarak logo biar lega dan gak mentok ke border */
-  filter: brightness(1.2); /* Logo lebih putih/tajam, bukan grayscale */
-  transition: all 0.3s ease;
+  padding: 40px;
+  filter: grayscale(0.2);
+  transition: filter 0.3s ease;
   pointer-events: none;
   user-select: none;
 }
 
 .item:hover img {
-  filter: brightness(1.5);
+  filter: grayscale(0);
 }
 
-/* 7. HILANGKAN SCROLLBAR */
+/* paksa hilangkan scrollbar kalau builder inject overflow */
 .partner-embed::-webkit-scrollbar,
 .wrap::-webkit-scrollbar,
 .marquee::-webkit-scrollbar {
   display: none;
 }
 
-.partner-embed, .wrap, .marquee {
+.partner-embed,
+.wrap,
+.marquee {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* 8. RESPONSIF MOBILE (GOOGLE SITES FRIENDLY) */
 @media (max-width: 768px) {
-  .item {
-    width: 220px;
-    height: 130px;
-    border-radius: 30px;
+  .partner-embed {
+    padding: 30px 14px;
   }
+
+  .marquee-track {
+    gap: 20px;
+    animation-duration: 25s;
+  }
+
+  .item {
+    width: 260px;
+    height: 150px;
+    border-radius: 12px;
+  }
+
   .item img {
-    padding: 35px;
+    padding: 24px;
+  }
+
+  @keyframes train {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 10px));
+    }
   }
 }

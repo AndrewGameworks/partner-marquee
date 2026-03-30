@@ -1,6 +1,6 @@
 # 🚀 Partner Marquee Slider
 
-Komponen *infinite looping marquee* berperforma tinggi yang dibangun dengan HTML5 dan CSS3 murni. Didesain khusus untuk menampilkan logo partner secara elegan dengan optimasi penuh untuk perangkat mobile.
+A high-performance, infinite looping marquee component built with pure HTML5 and CSS3. Designed specifically to showcase partner or client logos elegantly with full mobile optimization.
 
 ---
 
@@ -8,16 +8,17 @@ Komponen *infinite looping marquee* berperforma tinggi yang dibangun dengan HTML
 | Key | Value |
 | :--- | :--- |
 | **Version** | v1.0.0-stable |
-| **Build Date** | 30 Maret 2026 |
+| **Build Date** | March 30, 2026 |
 | **Status** | 🟢 Production Ready |
-| **License** | APACHE LICENSE |
+| **License** | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
+| **Type** | Open Source |
 
 ---
 
-## 📂 Struktur Folder
+## 📂 Folder Structure
 ```text
 partner-marquee/
-├── assets/           # Direktori logo (lokal)
-├── index.html        # Entry point utama
-├── style.css         # Logika animasi & layouting
-└── README.md         # Dokumentasi proyek
+├── assets/           # Local logo directory
+├── index.html        # Main entry point
+├── style.css         # Animation & layout logic
+└── README.md         # Project documentation

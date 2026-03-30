@@ -1,137 +1,118 @@
-/* Reset Dasar & Box Sizing */
+/* CSS Murni - Menggunakan Warna Border Abu-abu sesuai Script Abang */
+
 .partner-embed,
 .partner-embed *,
 .wrap,
 .marquee {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/* Container Utama */
 .partner-embed {
-    width: 100%;
-    background: #000000; /* Hitam Pekat */
-    padding: 40px 20px;
-    border-radius: 16px;
-    overflow: hidden !important;
-    position: relative;
-    height: auto !important;
-    min-height: unset !important;
+  width: 100%;
+  background: #000;
+  padding: 40px 20px;
+  border-radius: 16px;
+  overflow: hidden !important;
+  position: relative;
+  height: auto !important;
 }
 
 .wrap {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    overflow: hidden !important;
-    height: auto !important;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden !important;
 }
 
-/* Area Marquee dengan Masking Fade */
 .marquee {
-    width: 100%;
-    overflow: hidden !important;
-    position: relative;
-    padding: 10px 0;
-    background: #000000;
-    height: auto !important;
-    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  width: 100%;
+  overflow: hidden !important;
+  position: relative;
+  padding: 10px 0;
+  background: #000;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
-/* Track Animasi */
 .marquee-track {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    width: max-content;
-    animation: train 40s linear infinite;
-    will-change: transform;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: max-content;
+  animation: train 40s linear infinite;
+  will-change: transform;
 }
 
 @keyframes train {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(-50% - 15px)); }
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 15px)); }
 }
 
 .marquee:hover .marquee-track {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
-/* ITEM CARD - DISESUAIKAN DENGAN GAMBAR */
 .item {
-    flex: 0 0 auto;
-    width: 380px;
-    height: 220px;
-    background: #000000; /* UBAH: Dari #111 ke Hitam Pekat biar gak abu-abu */
-    border-radius: 45px; /* UBAH: Lengkungan lebar sesuai screenshot */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border: 1px solid #1a1a1a; /* Border tipis & gelap */
-    transition: background 0.3s ease, border-color 0.3s ease;
+  flex: 0 0 auto;
+  width: 380px;
+  height: 220px;
+  background: #000;           /* Background card dibuat Hitam agar menyatu */
+  border-radius: 45px;        /* Radius diperlebar sesuai gambar abang */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #111;     /* TETAP PAKAI WARNA ABU-ABU sesuai script abang */
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .item:hover {
-    background: #050505;
-    border-color: #333;
-    transform: none; 
+  background: #0a0a0a;
+  border-color: #333;         /* Saat dihover abu-abunya agak terang dikit */
+  transform: none; 
 }
 
-/* LOGO INSIDE CARD */
 .item img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 50px; /* Jarak logo ke tepi biar lega */
-    filter: brightness(1.2); /* Logo lebih cerah/putih bersih */
-    transition: filter 0.3s ease;
-    pointer-events: none;
-    user-select: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 55px;              /* Logo lebih lega di tengah */
+  filter: brightness(1.2);    /* Logo lebih putih tajam */
+  transition: filter 0.3s ease;
+  pointer-events: none;
+  user-select: none;
 }
 
 .item:hover img {
-    filter: brightness(1.5);
+  filter: brightness(1.5);
 }
 
-/* Paksa Hilangkan Scrollbar */
+/* Hilangkan Scrollbar */
 .partner-embed::-webkit-scrollbar,
 .wrap::-webkit-scrollbar,
 .marquee::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-.partner-embed,
-.wrap,
-.marquee {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+.partner-embed, .wrap, .marquee {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Responsive Mobile */
+/* Media Query Mobile */
 @media (max-width: 768px) {
-    .partner-embed {
-        padding: 30px 14px;
-    }
-
-    .marquee-track {
-        gap: 20px;
-        animation-duration: 25s;
-    }
-
-    .item {
-        width: 260px;
-        height: 150px;
-        border-radius: 30px; /* Radius versi mobile disesuaikan */
-    }
-
-    .item img {
-        padding: 35px;
-    }
-
-    @keyframes train {
-        from { transform: translateX(0); }
-        to { transform: translateX(calc(-50% - 10px)); }
-    }
+  .partner-embed { padding: 30px 14px; }
+  .marquee-track { gap: 20px; animation-duration: 25s; }
+  .item { 
+    width: 260px; 
+    height: 150px; 
+    border-radius: 30px; 
+  }
+  .item img { padding: 35px; }
+  
+  @keyframes train {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 10px)); }
+  }
 }

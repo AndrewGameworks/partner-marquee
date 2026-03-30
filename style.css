@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #050505; /* Biar nyatu sama komponennya */
+    background-color: #000; /* Hitam Pekat */
     font-family: sans-serif;
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@ body {
 
 .partner-embed {
     width: 100%;
-    background: #000;
+    background: #000; /* Hitam Pekat */
     padding: 40px 20px;
     border-radius: 16px;
     overflow: hidden;
@@ -35,6 +35,8 @@ body {
     overflow: hidden;
     position: relative;
     padding: 10px 0;
+    background: #000; /* Hitam Pekat */
+    /* Efek fade di pinggir tetap ada biar smooth */
     mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
@@ -61,19 +63,19 @@ body {
     flex: 0 0 auto;
     width: 380px;
     height: 220px;
-    background: #111;
+    background: #000; /* Ubah dari #111 ke Hitam Pekat */
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 1px solid #222;
+    border: 1px solid #1a1a1a; /* Border tipis biar tetap kelihatan bentuk card-nya */
     transition: all 0.3s ease;
 }
 
 .item:hover {
-    background: #1a1a1a;
-    border-color: #444;
+    background: #0a0a0a; /* Sedikit terang pas di-hover biar ada feedback */
+    border-color: #333;
 }
 
 .item img {
